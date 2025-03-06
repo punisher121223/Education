@@ -1,13 +1,21 @@
 window.onload = () => {
-    let user = localStorage.getItem('currentUser');
+    let currentUser = localStorage.getItem('currentUser');
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    let currentUser = users.find(u => u.username === user);
+    let user = users.find(u => u.username === currentUser);
 
-    if (currentUser.profile) {
-        document.getElementById('first-name').value = currentUser.profile.firstName || '';
-        document.getElementById('last-name').value = currentUser.profile.lastName || '';
-        if (currentUser.profile.image) {
-            document.getElementById('profile-pic').src = currentUser.profile.image;
+    if (currentUser === 'guest') {
+        document.getElementById('guest-section').style.display = 'block';
+        document.getElementById('user-section').style.display = 'none';
+    } else {
+        document.getElementById('guest-section').style.display = 'none';
+        document.getElementById('user-section').style.display = 'block';
+
+        if (user.profile) {
+            document.getElementById('first-name').value = user.profile.firstName || '';
+            document.getElementById('last-name').value = user.profile.lastName || '';
+            if (user.profile.image) {
+                document.getElementById('profile-pic').src = user.profile.image;
+            }
         }
     }
 };
@@ -31,11 +39,11 @@ function saveProfile() {
 }
 
 function saveProfileData(firstName, lastName, image) {
-    let user = localStorage.getItem('currentUser');
+    let currentUser = localStorage.getItem('currentUser');
     let users = JSON.parse(localStorage.getItem('users')) || [];
-    let currentUser = users.find(u => u.username === user);
+    let user = users.find(u => u.username === currentUser);
 
-    currentUser.profile = { firstName, lastName, image };
+    user.profile = { firstName, lastName, image };
     localStorage.setItem('users', JSON.stringify(users));
     alert('پروفایل با موفقیت ذخیره شد!');
 }
