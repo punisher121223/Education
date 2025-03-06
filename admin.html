@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حالت مدیر</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>حالت مدیر</h1>
+        <div id="admin-login">
+            <input type="text" id="admin-username" placeholder="نام کاربری مدیر">
+            <input type="password" id="admin-password" placeholder="رمز عبور">
+            <button onclick="adminLogin()">ورود</button>
+        </div>
+        <div id="admin-panel" style="display: none;">
+            <h2>مدیریت کاربران</h2>
+            <div id="user-list"></div>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>
