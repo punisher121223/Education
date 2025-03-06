@@ -9,7 +9,13 @@
 <body>
     <div class="container">
         <h1>پروفایل من</h1>
-        <div class="profile-box">
+        <div class="profile-box" id="guest-section">
+            <p>شما به عنوان مهمان وارد شدید. برای ذخیره پیشرفت خود، یک حساب بسازید:</p>
+            <input type="text" id="new-username" placeholder="نام کاربری" required>
+            <input type="password" id="new-password" placeholder="رمز عبور" required>
+            <button onclick="createAccount()">ساخت حساب</button>
+        </div>
+        <div class="profile-box" id="user-section" style="display: none;">
             <img id="profile-pic" src="assets/images/default-pic.png" alt="عکس پروفایل">
             <input type="file" id="profile-pic-upload" accept="image/*">
             <input type="text" id="first-name" placeholder="نام">
@@ -20,5 +26,6 @@
         <a href="dashboard.html">بازگشت به داشبورد</a>
     </div>
     <script src="js/profile.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>
