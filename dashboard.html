@@ -9,14 +9,16 @@
 <body>
     <div class="container">
         <div class="navbar">
-            <h2>خوش اومدی، <span id="user-display"></span>!</h2>
+            <h2>خوش اومدی، <span id="user-display">مهمان</span>!</h2>
             <a href="profile.html">پروفایل</a>
+            <a href="#" id="logout-link" style="display: none;" onclick="logout()">خروج</a>
         </div>
         <div class="sections">
             <div class="section-box" onclick="startPractice('math')">ریاضی</div>
             <div class="section-box" onclick="startPractice('writing')">فارسی و نگارش</div>
         </div>
     </div>
+    <script src="js/auth.js"></script>
     <script src="js/practice.js"></script>
 </body>
 </html>
